@@ -12,7 +12,7 @@ const patagonia = new DestinationCreator("Fitz Roy", "/images/patagonia.jpg", "A
 const newZealand = new DestinationCreator("New Zealand", "/images/new-zealand.jpg", "New Zealand, no description necessary.", false);
 const slovenia = new DestinationCreator("Slovenia", "/images/slovenia.jpg", "Slovenia, one of the lesser travelled European destinations.", false);
 const zion = new DestinationCreator("Zion National Park", "/images/zion.jpg", "Canyoneering through the maze of slot canyons in Utah.", false);
-
+// End of ugly code for use in the constructor function
 
 
 
@@ -33,3 +33,8 @@ const cardDataGenerator = () => {
   destinationsForCards.push(bugaboos, costaRica, patagonia, newZealand, slovenia, zion);
 };
 cardDataGenerator();
+
+//Generic write to DOM function
+const writeToDom = (domString, divId) => {
+  document.getElementById(divId).innerHTML += domString;
+};
