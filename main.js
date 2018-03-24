@@ -54,7 +54,9 @@ const cardCreator = (inputArray) => {
   }
 )};
 
-cardDataGenerator();
-cardCreator(destinationsForCards);
 
-
+const startUpApplication = () => {
+  cardDataGenerator();
+  cardCreator(destinationsForCards);
+}
+startUpApplication();
