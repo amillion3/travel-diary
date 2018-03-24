@@ -48,14 +48,14 @@ const cardCreator = (inputArray) => {
                     <img src="${card.image}">
                     <p>${card.description}</p>
                     <textarea name=""></textarea>
-                    <button class="button"><strong>Submit Entry</strong></button>
+                    <button class="button">Submit Entry</button>
                   </div>`;
     writeToDom(cardOutput, "card-wrapper");
   }
 )};
 
 //Writes diarty entries to the DOM when the user submits one
-//inputArray format: location, timestamp, user input
+//  inputArray format: location, timestamp, user input
 const diaryEntryCreator = (inputArray) => {
   let diaryOutput = "";
   diaryOutput =  `<div class="diary-entry">
@@ -66,10 +66,25 @@ const diaryEntryCreator = (inputArray) => {
   writeToDom(diaryOutput, "diary-wrapper");
 };
 
+//After submit button click, this generates the
+//  array for use in 'diaryEntryCreator' function
+const createArrayForDiaryInput = (event) => {
+  let clickedLocation = event.target.parentNode.children[0].innerHTML;
+  let clickedTextArea = event.target.parentNode.children[3].value;
+  diaryEntryCreator([clickedLocation, "timestamp!!", clickedTextArea]);
+};
 
+// Create event listeners on all buttons in the cards
+const createEventListeners = () => {
+  const submitButtons = document.getElementsByClassName("button");
+  for (let i = 0; i < submitButtons.length; i++) {
+    submitButtons[i].addEventListener('click', createArrayForDiaryInput);
+  }
+};
 
 const startUpApplication = () => {
   cardDataGenerator();  //generates array of object data
   cardCreator(destinationsForCards);  //generates cards in the DOM
+  createEventListeners();  //generates event listeners on buttons in cards
 };
 startUpApplication();  //runs necessary JS scripts
