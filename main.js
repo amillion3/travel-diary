@@ -66,12 +66,18 @@ const diaryEntryCreator = (inputArray) => {
   writeToDom(diaryOutput, "diary-wrapper");
 };
 
+// Create timestamp
+const getTimeStamp = () => {
+  let dt = new Date();  //gets current time
+  return dt.toUTCString();  //conerts current time to a UTC string
+};
+
 //After submit button click, this generates the
 //  array for use in 'diaryEntryCreator' function
 const createArrayForDiaryInput = (event) => {
   let clickedLocation = event.target.parentNode.children[0].innerHTML;
   let clickedTextArea = event.target.parentNode.children[3].value;
-  diaryEntryCreator([clickedLocation, "timestamp!!", clickedTextArea]);
+  diaryEntryCreator([clickedLocation, getTimeStamp(), clickedTextArea]);
 };
 
 // Create event listeners on all buttons in the cards
@@ -81,6 +87,7 @@ const createEventListeners = () => {
     submitButtons[i].addEventListener('click', createArrayForDiaryInput);
   }
 };
+
 
 const startUpApplication = () => {
   cardDataGenerator();  //generates array of object data
