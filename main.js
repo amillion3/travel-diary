@@ -54,9 +54,22 @@ const cardCreator = (inputArray) => {
   }
 )};
 
+//Writes diarty entries to the DOM when the user submits one
+//inputArray format: location, timestamp, user input
+const diaryEntryCreator = (inputArray) => {
+  let diaryOutput = "";
+  diaryOutput =  `<div class="diary-entry">
+                    <h2>${inputArray[0]}</h2>
+                    <h5 class="timestamp">${inputArray[1]}</h5>
+                    <p>${inputArray[2]}</p>
+                  </div>`
+  writeToDom(diaryOutput, "diary-wrapper");
+};
+
+
 
 const startUpApplication = () => {
-  cardDataGenerator();
-  cardCreator(destinationsForCards);
-}
-startUpApplication();
+  cardDataGenerator();  //generates array of object data
+  cardCreator(destinationsForCards);  //generates cards in the DOM
+};
+startUpApplication();  //runs necessary JS scripts
