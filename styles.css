@@ -96,7 +96,16 @@ button {
   background-color: #E9B000;
 }
 
+.diary-entry p {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+}
+
 .timestamp {
   color: whitesmoke;
+}
+
+.btn-delete {
+  float: right;
 }
 /* end of Diary Styling */

@@ -57,13 +57,15 @@ const cardCreator = (inputArray) => {
 //Writes diarty entries to the DOM when the user submits one
 //  inputArray format: location, timestamp, user input
 const diaryEntryCreator = (inputArray) => {
-  let diaryOutput = 
+  let diaryOutput =
                     `<div class="diary-entry">
                       <h2>${inputArray[0]}</h2>
                       <h5 class="timestamp">${inputArray[1]}</h5>
                       <p>${inputArray[2]}</p>
+                      <button class="btn-delete">Delete Entry</button>
                     </div>`
   writeToDom(diaryOutput, "diary-wrapper");
+  deleteBtnEvenListeners();
 };
 
 // Create timestamp
@@ -79,8 +81,8 @@ const changeBackgroundColorClicked = (event) => {
 //After submit button click, this generates the
 //  array for use in 'diaryEntryCreator' function
 const createArrayForDiaryInput = (event) => {
-  let clickedLocation = event.target.parentNode.children[0].innerHTML;
-  let clickedTextArea = event.target.parentNode.children[3].value;
+  const clickedLocation = event.target.parentNode.children[0].innerHTML;
+  const clickedTextArea = event.target.parentNode.children[3].value;
   if (clickedTextArea !== "") {
     event.target.parentNode.children[3].value = "";  //clear textarea input
     changeBackgroundColorClicked(event);
@@ -93,8 +95,22 @@ const createArrayForDiaryInput = (event) => {
 // Create event listeners on all buttons in the cards
 const createEventListeners = () => {
   const submitButtons = document.getElementsByClassName("button");
+  //replace with .forEach()
   for (let i = 0; i < submitButtons.length; i++) {
     submitButtons[i].addEventListener('click', createArrayForDiaryInput);
+  }
+};
+
+// deletes diary entry after 'Delete Entry' button is clicked
+const deleteDiaryEntry = (event) => {
+  event.target.parentNode.remove()
+};
+
+// Delete button event listener(s) in diary entries
+const deleteBtnEvenListeners = () => {
+  const deleteButtons = document.getElementsByClassName("btn-delete");
+  for (let i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].addEventListener('click', deleteDiaryEntry);
   }
 };
 
