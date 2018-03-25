@@ -10,9 +10,11 @@ This single page app will display cards that I have been to, or I want to go to.
 
 ## Screenshots
 ![Top of webpage](https://raw.githubusercontent.com/amillion3/travel-diary/master/screenshots/top-of-page.png)
-Above, this is the top of the page, showing you 3 complete cards.
 
+Above, this is the top of the page, showing you 3 complete cards.
+___
 ![Bottom of webpage and diary entries](https://raw.githubusercontent.com/amillion3/travel-diary/master/screenshots/diary-entries.png)
+
 Above, this is a sample of two Travel Diary entries.
 ___
 ## Running The Project
