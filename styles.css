@@ -1,11 +1,102 @@
+/*
+Papaya (red orange) #E24E42
+Mustard #E9B000
+BLUSH (PINK) #EB6E80
+AQUA #008F95
+*/
+
 body {
-  
+  background-color: #FEFEFA; /* baby powder */
 }
 
-img {
-  width: 100px;
+/* ----Overall wrapper styling----  */
+.wrapper {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.wrapper h1 {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 60px;
+  letter-spacing: 2px;
+}
+
+h1, h2, h3, h4, h5, h6, a, p, button {
+  font-family: 'Quattrocento', serif;
+}
+/* End wrapper styling */
+
+/* --------Card Styling-------- */
+#card-wrapper {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .card {
-  border: 1px solid red;
+  border: 2px solid dimgrey;
+  margin: 20px 3px 0px 3px;
+  width: 28%;
+  display: inline-block;
+  padding: 6px;
+  background-color: #EB6E80;
 }
+
+.card h2 {
+  text-align: center;
+  border-bottom: 1px solid #ed7c8c;
+}
+
+.card img {
+  width: 100%;
+}
+
+.papaya {
+  background-color: #E24E42;
+}
+
+textarea {
+  width: 100%;
+  height: 75px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-color: grey;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+}
+/*  end of Card Styling  */
+
+/* ------Diary Styling------ */
+#diary-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.diary-entry {
+  background-color: #008F95;
+  border: 2px solid dimgrey;
+  width: 65%;
+  padding: 8px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.diary-entry:nth-child(even) {
+  background-color: #E9B000;
+}
+
+.timestamp {
+  color: whitesmoke;
+}
+/* end of Diary Styling */

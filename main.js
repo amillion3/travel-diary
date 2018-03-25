@@ -40,12 +40,13 @@ const writeToDom = (domString, divId) => {
 };
 
 //Writes cards to the DOM from an input array
+{/* <a href="/images/china.jpg"><img src="/images/china.jpg"></a> */}
 const cardCreator = (inputArray) => {
   inputArray.forEach((card) => { //iterate through destination data
     let cardOutput =
                   `<div class="card" id="btn-${card.id}">
                     <h2>${card.location}</h2>
-                    <img src="${card.image}">
+                    <a href="${card.image}" target="_blank"><img src="${card.image}"></a>
                     <p>${card.description}</p>
                     <textarea name=""></textarea>
                     <button class="button">Submit Entry</button>
@@ -72,11 +73,17 @@ const getTimeStamp = () => {
   return dt.toUTCString();  //conerts current time to a UTC string
 };
 
+const changeBackgroundColorClicked = (event) => {
+  event.target.parentNode.classList.add("papaya");
+};
+
 //After submit button click, this generates the
 //  array for use in 'diaryEntryCreator' function
 const createArrayForDiaryInput = (event) => {
   let clickedLocation = event.target.parentNode.children[0].innerHTML;
   let clickedTextArea = event.target.parentNode.children[3].value;
+  event.target.parentNode.children[3].value = "";  //clear textarea input
+  changeBackgroundColorClicked(event);
   diaryEntryCreator([clickedLocation, getTimeStamp(), clickedTextArea]);
 };
 
@@ -88,6 +95,18 @@ const createEventListeners = () => {
   }
 };
 
+// const addAllEventListeners = () => {
+//   const allTheButtons = document.getElementsByClassName('card-button');
+
+//   for (let i = 0; i < allTheButtons.length; i++) {
+//       allTheButtons[i].addEventListener('click', changeNameToGreen);
+//   }
+// };
+
+// const changeNameToGreen = (e) => {
+//   const nameOfStudent = e.target.parentNode.children[0];
+//   nameOfStudent.classList.add('green');
+// };
 
 const startUpApplication = () => {
   cardDataGenerator();  //generates array of object data
